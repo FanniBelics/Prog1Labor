@@ -25,7 +25,29 @@ int main()
 		grid.add(Point{0,y},Point(win_x,y));
 	}	
 
-
 	win.attach(grid);
+
+	Vector_ref<Graph_lib::Rectangle> reds;
+
+	for(int i=0;i<8;i++)
+	{
+		reds.push_back(new Rectangle {Point{i*100,i*100}, 100, 100});
+		reds[i].set_fill_color(Color::red);
+		win.attach(reds[i]);
+	}
+
+	Image h1 {Point{400,100}, "hunter.jpg"};
+	win.attach(h1);
+	Image h2 {Point{600,300}, "hunter.jpg"};
+	win.attach(h2);
+	Image h3 {Point{100,400}, "hunter.jpg"};
+	win.attach(h3);
+	Image h4 {Point{300,600}, "hunter.jpg"};
+	win.attach(h4);
+
+	Image shaman {Point{0,0}, "shaman.jpg"};
+	win.attach(shaman);
+
+
 	win.wait_for_button();
 }
