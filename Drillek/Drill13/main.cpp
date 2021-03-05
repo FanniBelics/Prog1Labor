@@ -48,6 +48,29 @@ int main()
 	Image shaman {Point{0,0}, "shaman.jpg"};
 	win.attach(shaman);
 
+	win.wait_for_button();
+
+	int rows_done=0;
+	while(true)
+	{
+		for(int i=0;i<7;i++)
+		{
+			shaman.move(100,0);
+			win.wait_for_button();
+		}
+		if(rows_done==7)
+		{
+			rows_done=0;
+			shaman.move(-700,-700);
+		}
+		else
+		{
+			shaman.move(-700,100);
+			rows_done++;
+		}
+		win.wait_for_button();
+	}
+	
 
 	win.wait_for_button();
 }
