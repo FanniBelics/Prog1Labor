@@ -30,6 +30,9 @@ Lines_window::Lines_window(Point xy, int w, int h, const string& title)
 
     line_menu.attach(new Button{Point{0,0},0,0,"solid",cb_solid});
     line_menu.attach(new Button{Point{0,0},0,0,"dashed",cb_dash});
+    line_menu.attach(new Button{Point{0,0},0,0,"dotted",cb_dot});
+    line_menu.attach(new Button{Point{0,0},0,0,"dash-dot",cb_dashdot});
+    line_menu.attach(new Button{Point{0,0},0,0,"dashed-dot-dot",cb_dashdotdot});
 
     attach(color_menu);
     attach(line_menu);

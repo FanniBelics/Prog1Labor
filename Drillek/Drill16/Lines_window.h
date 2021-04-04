@@ -26,6 +26,9 @@ struct Lines_window : Graph_lib::Window {
 	static void cb_line_menu(Address, Address pw){reference_to<Lines_window>(pw).line_pressed();}
 	static void cb_solid(Address, Address pw){reference_to<Lines_window>(pw).solid_pressed();}
 	static void cb_dash(Address, Address pw){reference_to<Lines_window>(pw).dash_pressed();}
+	static void cb_dot(Address, Address pw){reference_to<Lines_window>(pw).dot_pressed();}
+	static void cb_dashdot(Address, Address pw){reference_to<Lines_window>(pw).dash_dot_pressed();}
+	static void cb_dashdotdot(Address, Address pw){reference_to<Lines_window>(pw).dash_dot_dot_pressed();}
 
 private:
 	Button next_button;
@@ -60,5 +63,8 @@ private:
 	void change_ls(Line_style s) {lines.set_style(s);hide_style_menu();}
 	void solid_pressed(){change_ls(Line_style::solid);}
 	void dash_pressed(){change_ls(Line_style::dash);}
+	void dot_pressed(){change_ls(Line_style::dot);}
+	void dash_dot_pressed(){change_ls(Line_style::dashdot);}
+	void dash_dot_dot_pressed(){change_ls(Line_style::dashdotdot);}
 
 };
