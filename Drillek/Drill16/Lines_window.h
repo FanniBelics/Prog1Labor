@@ -7,8 +7,10 @@ struct Lines_window : Graph_lib::Window {
 	Open_polyline lines;
 
 	Menu color_menu;
+	Menu line_menu;
 
 	Button color_button;
+	Button linestyle_button;
 
 	bool wait_for_button();
 
@@ -20,6 +22,10 @@ struct Lines_window : Graph_lib::Window {
 	static void cb_black(Address, Address pw){reference_to<Lines_window>(pw).black_pressed();}
 	static void cb_white(Address, Address pw){reference_to<Lines_window>(pw).white_pressed();}
 	static void cb_color_menu(Address, Address pw){reference_to<Lines_window>(pw).color_pressed();}
+
+	static void cb_line_menu(Address, Address pw){reference_to<Lines_window>(pw).line_pressed();}
+	static void cb_solid(Address, Address pw){reference_to<Lines_window>(pw).solid_pressed();}
+	static void cb_dash(Address, Address pw){reference_to<Lines_window>(pw).dash_pressed();}
 
 private:
 	Button next_button;
@@ -44,7 +50,15 @@ private:
 	void black_pressed(){change(Color::black);hide_menu();}
 
 	//part3
-	void hide_menu(){color_menu.hide();color_button.show();}
-	void color_pressed(){color_button.hide();color_menu.show();}
+	void hide_menu(){color_menu.hide();color_button.show();linestyle_button.show();}
+	void color_pressed(){color_button.hide();linestyle_button.hide();color_menu.show();}
+
+	//part4
+	void hide_style_menu(){line_menu.hide();linestyle_button.show();color_button.show();}
+	void line_pressed(){linestyle_button.hide();color_button.hide();line_menu.show();}
+
+	void change_ls(Line_style s) {lines.set_style(s);hide_style_menu();}
+	void solid_pressed(){change_ls(Line_style::solid);}
+	void dash_pressed(){change_ls(Line_style::dash);}
 
 };
