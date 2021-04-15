@@ -13,7 +13,8 @@ struct S
     explicit S(T v=0) : val{v} {};
 
     const T& get();
-    void set(T vv);
+    S& operator= (const T& new_val);
+//    void set(T vv);
 
 };
 
@@ -23,19 +24,55 @@ const T& S<T>:: get()
         return val;
     }
 template <typename T>
+S<T>& S<T>::operator= (const T& new_val)
+{
+    val=new_val;
+    return *this;
+}
+/*
+template <typename T>
 void S<T>::set(T vv)
 {
     val=vv;
 }
+*/
+
+template <typename T>
+void read_val(T& value)
+{
+    cin>>value;
+}
+
 
 
 int main()
 {
     S<int> sint (13);
+    int i;
+    cout<<"Add an integer: "<<endl;
+    read_val(i);
+    sint=i;
+
     S<char> schar ('Y');
+    char c;
+    cout<<"Add a char: "<<endl;
+    read_val(c);
+    schar=c;
 //    schar.set('W');
+
     S<double> sdouble (3.141592);
+    double d;
+    cout<<"Add a double: "<<endl;
+    read_val(d);
+    sdouble=d;
+
     S<string> sstring ("Yare Yare Daze");
+//    sstring="Kono Dio Da!";
+    string s;
+    cout<<"Add string: "<<endl;
+    read_val(s);
+    sstring=s;
+
     S<vector<int>> svector (vector<int> {0, 1, 2, 3, 4});
 
     cout<<"int: "<<sint.get()<<"\n"
