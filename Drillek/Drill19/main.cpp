@@ -43,6 +43,18 @@ void read_val(T& value)
     cin>>value;
 }
 
+template <typename T>
+ostream& operator<< (ostream& os, vector<T>& v)
+{
+    os<<"{";
+
+    for(auto lm : v)
+        os<<lm<<(lm==v[v.size()-1] ? "" : ", ");
+    os<<"}";
+
+    return os;
+}
+
 
 
 int main()
@@ -80,6 +92,8 @@ int main()
         <<"double: "<<sdouble.get()<<"\n"
         <<"string: "<<sstring.get()<<endl;
 
+    vector<int> test{10, 20, 30, 40};
+    cout<<test;
 
     return 0;
 }
