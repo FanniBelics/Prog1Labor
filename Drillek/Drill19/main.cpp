@@ -55,6 +55,25 @@ ostream& operator<< (ostream& os, vector<T>& v)
     return os;
 }
 
+template <typename T>
+istream& operator>> (istream& is, vector<T>& v)
+{
+    char braces;
+    is>>braces;
+    if(braces!='{')
+        is.clear();
+    int val;
+    while(is>>val)
+    {
+        v.push_back(val);
+        is>>braces;
+        if(braces!=',')
+            break;
+    }
+
+    return is;
+}
+
 
 
 int main()
@@ -92,7 +111,9 @@ int main()
         <<"double: "<<sdouble.get()<<"\n"
         <<"string: "<<sstring.get()<<endl;
 
-    vector<int> test{10, 20, 30, 40};
+    cout<<"Vector<int> {val, val, val}"<<endl;
+    vector<int> test;
+    read_val(test);
     cout<<test;
 
     return 0;
