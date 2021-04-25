@@ -5,6 +5,23 @@
 
 using namespace std;
 
+template<typename T>
+void print_val(T temp)
+{
+    for(auto lm : temp)
+        cout<<lm<<" ";
+        cout<<endl;
+}
+
+template<typename T>
+void increase(T& temp, const int val)
+{
+    for(auto& lm : temp)
+    {
+        lm+=val;
+    }
+}
+
 int main()
 {
     const int size=10;
@@ -18,13 +35,18 @@ int main()
     vector<int> v2 = v;
     list <int> l2 = l;
 
-/*
-    for(int i=0; i<size; i++)
-    {
-        cout<<l2[i]<<" ";
-    }
-    cout<<endl;
-*/
+//    print_val(ari);
+
+    cout<<"Array: ";
+    increase(ari, 2);
+    print_val(ari);
+    cout<<"Vector: ";
+    increase(v, 3);
+    print_val(v);
+    cout<<"List: ";
+    increase(l,5);
+    print_val(l);
+
 
     return 0;
 }
