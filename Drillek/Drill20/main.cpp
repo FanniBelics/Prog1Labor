@@ -71,7 +71,7 @@ int main()
     vfind = std::find(v2.begin(), v2.end(), 3);
     if(vfind != v2.end())
     {
-        cout<<distance(v2.begin(), vfind)+1<<endl;
+        cout<<distance(v2.begin(), vfind)<<endl;
     }
     else
     {
@@ -86,7 +86,7 @@ int main()
     }
     else
     {
-        cout<<distance(l2.begin(), lfind)+1<<endl;
+        cout<<distance(l2.begin(), lfind)<<endl;
     }
 
 
