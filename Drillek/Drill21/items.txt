@@ -1,0 +1,10 @@
+Monstrea Pen; 1; 3.9
+Paper chair; 2; 10.65
+Pie; 3; 3.14159265
+Earphones; 4; 100.14
+Succulent soil mix; 5; 39.47
+Hanging pot; 6; 17.52
+Pair of socks; 7; 4.04
+Tissues; 8; 5.6
+Oolong tea; 9; 27.19
+Calculator; 10; 10.22
