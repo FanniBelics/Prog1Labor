@@ -94,7 +94,7 @@ int main()
     vi.erase(find_if(vi.begin(), vi.end(), find_by_iid(99)));
     vi.erase(find_if(vi.begin(), vi.end(), find_by_iid(9988)));
 
-    cout<<"After insert and erase:"<<endl;
+    cout<<"\nAfter insert and erase:"<<endl;
     print(vi);
 
 

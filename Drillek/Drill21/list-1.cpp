@@ -68,19 +68,19 @@ int main()
     print(li);
 
     cout<<"\nBy name:"<<endl;
-    li.sort();
+    li.sort(by_name);
     print(li);
-/*
+
     cout<<"\nBy iid:"<<endl;
-    sort(li.begin(), li.end(), by_iid);
+    li.sort(by_iid);
     print(li);
 
     cout<<"\nBy value decrease:"<<endl;
-    sort(li.begin(), li.end(),
+    li.sort(
         [] (const Item a, const Item b){return a.value>b.value;}
         );
     print(li);
-*/
+
     Item insert1 = {"Horse shoe", 99, 12.34};
     Item insert2 = {"Canon S400", 9988, 499.95};
 
@@ -93,7 +93,7 @@ int main()
     li.erase(find_if(li.begin(), li.end(), find_by_iid(99)));
     li.erase(find_if(li.begin(), li.end(), find_by_iid(9988)));
 
-    cout<<"After insert and erase:"<<endl;
+    cout<<"\nAfter insert and erase:"<<endl;
     print(li);
 
 
